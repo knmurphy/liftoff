@@ -38,7 +38,7 @@ const getRenderer = field => {
 };
 
 const Row = ({ rowData, fieldsToDisplay }) => (
-  <div className="row">
+  <div className="row dt dt--fixed">
     {_.chain(rowData.fields)
       .map(field =>
         fieldsToDisplay.includes(field.name) ? getRenderer(field) : null
