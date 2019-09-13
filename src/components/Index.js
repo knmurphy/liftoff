@@ -8,7 +8,7 @@ import Row from "./Row";
 import getFieldsToDisplay from "../utils/getFieldsToDisplay";
 
 const Index = ({ rows, pagination }) => (
-  <div className="index-page overflow-wrap">
+  <div className="index-page overflow-auto">
     {/* this needs to be refactored, shouldn't have check for window here */}
     {process.env.HEADER_TITLE && <Header title={process.env.HEADER_TITLE} />}
     <table className="f6 w-100 mw8 center" cellSpacing="0">
