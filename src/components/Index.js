@@ -8,26 +8,40 @@ import Row from "./Row";
 import getFieldsToDisplay from "../utils/getFieldsToDisplay";
 
 const Index = ({ rows, pagination }) => (
-  <div className="index-page">
+  <div className="index-page overflow-wrap">
     {/* this needs to be refactored, shouldn't have check for window here */}
     {process.env.HEADER_TITLE && <Header title={process.env.HEADER_TITLE} />}
-    {rows.map(row => {
-      const slugField = _.find(row.fields, field => field.name === "Slug");
-      const slug =
-        (typeof window === "undefined" && slugField && slugField.value) ||
-        row.id;
-
-      return (
-        <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
-          <Row
-            fieldsToDisplay={getFieldsToDisplay(
-              process.env.HOMEPAGE_FIELD_ORDER
-            )}
-            rowData={row}
-          />
-        </LinkOrAnchor>
-      );
-    })}
+    <table className="f6 w-100 mw8 center" cellSpacing="0">
+      <thead>
+        <tr className="stripe-dark">
+          <th className="fw6 tl pa3 bg-white">Order</th>
+          <th className="fw6 tl pa3 bg-white">Product</th>
+          <th className="fw6 tl pa3 bg-white">From</th>
+          <th className="fw6 tl pa3 bg-white">To</th>
+          <th className="fw6 tl pa3 bg-white">Sent</th>
+        </tr>
+      </thead>
+      <tbody className="lh-copy">
+        {rows.map(row => {
+          const slugField = _.find(row.fields, field => field.name === "Slug");
+          const slug =
+            (typeof window === "undefined" && slugField && slugField.value) ||
+            row.id;
+          return (
+            <tr className="stripe-dark">
+              <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
+                <Row
+                  fieldsToDisplay={getFieldsToDisplay(
+                    process.env.HOMEPAGE_FIELD_ORDER
+                  )}
+                  rowData={row}
+                />
+              </LinkOrAnchor>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
     {pagination && (
       <div>
         {pagination.back && (

@@ -1,3 +1,3 @@
-const getFieldsToDisplay = fields => (fields ? fields.split(",") : []);
+const getFieldsToDisplay = fields => (fields ? fields.split(",") : ["OrderID"]);
 
 export default getFieldsToDisplay;

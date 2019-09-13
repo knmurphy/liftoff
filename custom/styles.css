@@ -12,12 +12,12 @@ html {
 }
 body {
   margin: 0;
-  color: #137752;
+  color: #333;
 }
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
-  color: #137752;
+  color: #111;
 }
 hr {
   box-sizing: content-box;
@@ -6944,4 +6944,41 @@ code {
   .v-btm-l {
     vertical-align: bottom;
   }
+}
+
+w-100 {
+  width: 100%;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.pa3 {
+  padding: 1rem;
+}
+
+.pa4 {
+  padding: 2rem;
+}
+
+.stripe-dark:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tl {
+  text-align: left;
+}
+
+.f6 {
+  font-size: 0.875rem;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
 }
