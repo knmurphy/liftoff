@@ -14,7 +14,9 @@ const Index = ({ rows, pagination }) => (
     <table className="f6 w-100 mw8 center" cellSpacing="0">
       <thead>
         <tr>
-          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Order</th>
+          <th colSpan="1" className="fw6 bb b--black-20 tl pb3 pr3 bg-white">
+            Order
+          </th>
           <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Product</th>
           <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">From</th>
           <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">To</th>
@@ -24,6 +26,8 @@ const Index = ({ rows, pagination }) => (
           <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Carrier</th>
         </tr>
       </thead>
+    </table>
+    <table className="f6 w-100 mw8 center" cellSpacing="0">
       <tbody className="lh-copy">
         {rows.map(row => {
           const slugField = _.find(row.fields, field => field.name === "Slug");
