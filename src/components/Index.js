@@ -13,12 +13,15 @@ const Index = ({ rows, pagination }) => (
     {process.env.HEADER_TITLE && <Header title={process.env.HEADER_TITLE} />}
     <table className="f6 w-100 mw8 center" cellSpacing="0">
       <thead>
-        <tr className="stripe-dark">
-          <th className="fw6 tl pa3 bg-white">Order</th>
-          <th className="fw6 tl pa3 bg-white">Product</th>
-          <th className="fw6 tl pa3 bg-white">From</th>
-          <th className="fw6 tl pa3 bg-white">To</th>
-          <th className="fw6 tl pa3 bg-white">Sent</th>
+        <tr>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Order</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Product</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">From</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">To</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Company</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Notes</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Qty</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Carrier</th>
         </tr>
       </thead>
       <tbody className="lh-copy">
@@ -28,16 +31,14 @@ const Index = ({ rows, pagination }) => (
             (typeof window === "undefined" && slugField && slugField.value) ||
             row.id;
           return (
-            <tr className="stripe-dark">
-              <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
-                <Row
-                  fieldsToDisplay={getFieldsToDisplay(
-                    process.env.HOMEPAGE_FIELD_ORDER
-                  )}
-                  rowData={row}
-                />
-              </LinkOrAnchor>
-            </tr>
+            <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
+              <Row
+                fieldsToDisplay={getFieldsToDisplay(
+                  process.env.HOMEPAGE_FIELD_ORDER
+                )}
+                rowData={row}
+              />
+            </LinkOrAnchor>
           );
         })}
       </tbody>
