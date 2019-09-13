@@ -8,7 +8,7 @@ import Row from "./Row";
 import getFieldsToDisplay from "../utils/getFieldsToDisplay";
 
 const Index = ({ rows, pagination }) => (
-  <div className="index-page overflow-auto">
+  <div className="index-page">
     {/* this needs to be refactored, shouldn't have check for window here */}
     {process.env.HEADER_TITLE && <Header title={process.env.HEADER_TITLE} />}
     <table className="f6 w-100 mw8 center" cellSpacing="0">
@@ -36,12 +36,14 @@ const Index = ({ rows, pagination }) => (
             row.id;
           return (
             <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
-              <Row
-                fieldsToDisplay={getFieldsToDisplay(
-                  process.env.HOMEPAGE_FIELD_ORDER
-                )}
-                rowData={row}
-              />
+              <tr>
+                <Row
+                  fieldsToDisplay={getFieldsToDisplay(
+                    process.env.HOMEPAGE_FIELD_ORDER
+                  )}
+                  rowData={row}
+                />
+              </tr>
             </LinkOrAnchor>
           );
         })}
