@@ -24,6 +24,9 @@ const Index = ({ rows, pagination }) => (
           <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Notes</th>
           <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Qty</th>
           <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Carrier</th>
+          <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">
+            Shipping Status
+          </th>
         </tr>
       </thead>
     </table>
