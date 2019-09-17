@@ -2,6 +2,7 @@
 
 import formatAirtableRowData from "./src/utils/formatAirtableRowData";
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 require("dotenv").config();
 
 const React = require("react");
@@ -35,6 +36,7 @@ const downloadFile = (url, filepath, onSuccess, onError) => {
       response.pipe(file);
       file.on("finish", () => {
         file.close();
+        // eslint-disable-next-line no-unused-expressions
         onSuccess && onSuccess();
       });
     })
@@ -75,11 +77,10 @@ tableHasPublishedColumn(base, includePublished =>
           attachmentFields.forEach(attachmentField => {
             attachmentField.value.forEach(attachment => {
               if (!alreadyDownloadedAttachments[attachment.url]) {
-                const newUrl = `/assets/${attachment.id}-${
-                  attachment.filename
-                }`;
+                const newUrl = `/assets/${attachment.id}-${attachment.filename}`;
                 downloadFile(attachment.url, `dist${newUrl}`);
                 alreadyDownloadedAttachments[attachment.url] = true;
+                // eslint-disable-next-line no-param-reassign
                 attachment.url = newUrl;
               }
             });
@@ -170,5 +171,17 @@ fs.copyFile("public/default.css", "dist/main.css", () =>
 fs.copyFile("custom/favicon.ico", "dist/favicon.ico", err => {
   if (err) {
     console.log("No favicon.ico file found");
+  }
+});
+
+fs.copyFile("custom/agent1.png", "dist/agent1.png", err => {
+  if (err) {
+    console.log("No agent1 file found");
+  }
+});
+
+fs.copyFile("custom/agent2.png", "dist/agent2.png", err => {
+  if (err) {
+    console.log("No agent2 file found");
   }
 });

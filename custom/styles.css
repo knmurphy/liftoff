@@ -6949,3 +6949,10 @@ code {
     vertical-align: bottom;
   }
 }
+
+td.AgentName span#Agent1 {
+  background-image: url("/agent1.png");
+  background-position: center;
+  width: 50px;
+  height: 53px;
+}

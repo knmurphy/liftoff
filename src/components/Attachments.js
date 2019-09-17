@@ -19,19 +19,15 @@ const mapAttachmentToComponent = (attachment, fieldName) => {
 };
 
 const Attachments = ({ attachments, fieldName }) => (
-  <div
-    className={`attachments field dark-green dtc tc pv4 bg-black-10 ${stripFieldName(
-      fieldName
-    )}`}
-  >
-    <h2 className="field-name">{fieldName}</h2>
-    <ul className="field-value dark-green">
-      {attachments.map(attachment => (
-        <li className="dark-green" key={attachment.id}>
-          {mapAttachmentToComponent(attachment)}
-        </li>
-      ))}
-    </ul>
+  <div>
+    {attachments.map(attachment => (
+      <td
+        className={`attachments field ${stripFieldName(fieldName)}`}
+        key={attachment.id}
+      >
+        {mapAttachmentToComponent(attachment)}
+      </td>
+    ))}
   </div>
 );
 

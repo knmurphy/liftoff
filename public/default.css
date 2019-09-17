@@ -1,8 +1,6 @@
 body {
-  padding: 25px;
-  max-width: 900px;
-  margin: auto;
   color: black;
+  max-width: 100%;
 }
 
 ul {

@@ -25,7 +25,7 @@ const getRenderer = field => {
     }
 
     return (
-      <tr key={name}>
+      <tr>
         {value.map((string, idx) => (
           // eslint-disable-next-line react/no-array-index-key
           <TextField key={idx} fieldName={name} data={string} />
@@ -38,7 +38,7 @@ const getRenderer = field => {
 };
 
 const Row = ({ rowData, fieldsToDisplay }) => (
-  <tr>
+  <tr key={Number}>
     {_.chain(rowData.fields)
       .map(field =>
         fieldsToDisplay.includes(field.name) ? getRenderer(field) : null

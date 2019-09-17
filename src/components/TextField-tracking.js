@@ -1,25 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { markdown } from "markdown";
 
 import stripFieldName from "../utils/stripFieldName";
 
 const TextField = ({ fieldName, data }) => {
-  const isMarkdown =
-    process.env.MARKDOWN_FIELDS &&
-    process.env.MARKDOWN_FIELDS.split(",").includes(fieldName);
+  const isTracking =
+    process.env.TRACKING_FIELD &&
+    process.env.TRACKING_FIELD.split(",").includes(fieldName);
 
   return (
     <td className={`${stripFieldName(fieldName)} field pa3`}>
-      {isMarkdown ? (
-        <span
-          className="field-value markdown-field"
-          dangerouslySetInnerHTML={{ __html: markdown.toHTML(data) }}
+      {isTracking ? (
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
+        <a
+          className="tracking-link"
+          href={data}
+          dangerouslySetInnerHTML={{ __html: "Track Oder" }}
         />
       ) : (
-        <span id={data} className="field-value">
-          {data}
-        </span>
+        <span className="field-value">{data}</span>
       )}
     </td>
   );
