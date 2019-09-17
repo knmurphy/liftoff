@@ -1,5 +1,4 @@
 import React from "react";
-// eslint-disable-next-line no-unused-vars
 import _ from "underscore";
 import PropTypes from "prop-types";
 
@@ -35,13 +34,21 @@ const Index = ({ rows, pagination }) => (
     <table className="f6 w-100 mw8 center" cellSpacing="0">
       <tbody className="lh-copy">
         {rows.map(row => {
+          const slugField = _.find(row.fields, field => field.name === "Slug");
+          const slug =
+            (typeof window === "undefined" && slugField && slugField.value) ||
+            row.id;
           return (
-            <Row
-              fieldsToDisplay={getFieldsToDisplay(
-                process.env.HOMEPAGE_FIELD_ORDER
-              )}
-              rowData={row}
-            />
+            <LinkOrAnchor key={row.id} to={`/${slug}.html`}>
+              <tr>
+                <Row
+                  fieldsToDisplay={getFieldsToDisplay(
+                    process.env.HOMEPAGE_FIELD_ORDER
+                  )}
+                  rowData={row}
+                />
+              </tr>
+            </LinkOrAnchor>
           );
         })}
       </tbody>

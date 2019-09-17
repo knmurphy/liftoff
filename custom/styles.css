@@ -6949,9 +6949,3 @@ code {
     vertical-align: bottom;
   }
 }
-
-body > div > table:nth-child(8) > tbody > tr:nth-child(1) > td:nth-child(1) {
-  padding: 0;
-  display: none;
-  visibility: hidden;
-}

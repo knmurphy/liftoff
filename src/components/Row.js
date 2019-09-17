@@ -25,27 +25,27 @@ const getRenderer = field => {
     }
 
     return (
-      <td key={name}>
+      <tr key={name}>
         {value.map((string, idx) => (
           // eslint-disable-next-line react/no-array-index-key
           <TextField key={idx} fieldName={name} data={string} />
         ))}
-      </td>
+      </tr>
     );
   }
 
-  return <td />;
+  return <tr />;
 };
 
 const Row = ({ rowData, fieldsToDisplay }) => (
-  <td className="pa3">
+  <tr>
     {_.chain(rowData.fields)
       .map(field =>
         fieldsToDisplay.includes(field.name) ? getRenderer(field) : null
       )
       .filter(renderer => !!renderer)
       .value()}
-  </td>
+  </tr>
 );
 
 Row.defaultProps = {
