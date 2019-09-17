@@ -17,7 +17,6 @@ const Index = ({ rows, pagination }) => (
         <tr>
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Order</th>
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Product</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">From</th>
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">To</th>
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Company</th>
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Qty</th>
@@ -26,6 +25,7 @@ const Index = ({ rows, pagination }) => (
             Shipping Status
           </th>
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Tracking</th>
+          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">From</th>
         </tr>
       </thead>
       <tbody className="lh-copy">
