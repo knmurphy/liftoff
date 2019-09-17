@@ -185,3 +185,33 @@ fs.copyFile("custom/agent2.png", "dist/agent2.png", err => {
     console.log("No agent2 file found");
   }
 });
+
+fs.copyFile("custom/agent3.png", "dist/agent3.png", err => {
+  if (err) {
+    console.log("No agent3 file found");
+  }
+});
+
+fs.copyFile("custom/agent4.png", "dist/agent4.png", err => {
+  if (err) {
+    console.log("No agent4 file found");
+  }
+});
+
+fs.copyFile("custom/agent5.png", "dist/agent5.png", err => {
+  if (err) {
+    console.log("No agent5 file found");
+  }
+});
+
+fs.copyFile("custom/agent6.png", "dist/agent6.png", err => {
+  if (err) {
+    console.log("No agent6 file found");
+  }
+});
+
+fs.copyFile("custom/agent7.png", "dist/agent7.png", err => {
+  if (err) {
+    console.log("No agent7 file found");
+  }
+});
