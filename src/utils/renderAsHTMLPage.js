@@ -15,7 +15,7 @@ const renderAsHTMLPage = (component, pageTitle) => {
     <link rel="stylesheet" type="text/css" media="screen" href="/main.css" />
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
-  <body>
+  <body class="sans-serif pa4">
     ${renderToStaticMarkup(component)}
   </body>
 </html>`;
