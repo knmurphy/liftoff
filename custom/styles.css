@@ -6968,14 +6968,14 @@ td.AgentName span#Agent3 {
   background-image: url("/agent3.png");
   background-position: center;
   width: 50px;
-  height: 53px;
+  min-height: 53px;
 }
 
 td.AgentName span#Agent4 {
   background-image: url("/agent4.png");
   background-position: center;
   width: 50px;
-  height: 53px;
+  min-height: 53px;
 }
 
 td.AgentName span#Agent5 {
@@ -6986,7 +6986,7 @@ td.AgentName span#Agent5 {
 }
 
 td.AgentName span#Agent6 {
-  background-image: url("/agent6.png");
+  background-image: url("localhost:8080/agent6.png");
   background-position: center;
   width: 50px;
   height: 53px;

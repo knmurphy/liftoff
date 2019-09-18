@@ -22,7 +22,7 @@ const Attachments = ({ attachments, fieldName }) => (
   <div>
     {attachments.map(attachment => (
       <td
-        className={`attachments field ${stripFieldName(fieldName)}`}
+        className={`${stripFieldName(fieldName)} attachments field`}
         key={attachment.id}
       >
         {mapAttachmentToComponent(attachment)}

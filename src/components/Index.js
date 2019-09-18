@@ -1,6 +1,5 @@
 import React from "react";
-// eslint-disable-next-line no-unused-vars
-import _ from "underscore";
+
 import PropTypes from "prop-types";
 
 import LinkOrAnchor from "./LinkOrAnchor";
