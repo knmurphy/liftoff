@@ -10,25 +10,24 @@ const mapAttachmentToComponent = (attachment, fieldName) => {
       <img
         key={attachment.id}
         src={src}
-        className="attachment-image"
+        className="br4 h3 w3 dib attachment-image"
         alt={fieldName}
+        height="53px"
+        width="50px"
       />
     );
   }
-  return <div />;
+  return <td />;
 };
 
 const Attachments = ({ attachments, fieldName }) => (
-  <div>
+  <td className={`${stripFieldName(fieldName)} attachments field`}>
     {attachments.map(attachment => (
-      <td
-        className={`${stripFieldName(fieldName)} attachments field`}
-        key={attachment.id}
-      >
+      <div className="pa4 tc" key={attachment.id}>
         {mapAttachmentToComponent(attachment)}
-      </td>
+      </div>
     ))}
-  </div>
+  </td>
 );
 
 Attachments.propTypes = {
