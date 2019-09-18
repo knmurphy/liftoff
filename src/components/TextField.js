@@ -10,7 +10,7 @@ const TextField = ({ fieldName, data }) => {
     process.env.MARKDOWN_FIELDS.split(",").includes(fieldName);
 
   return (
-    <td className={`${stripFieldName(fieldName)} field pa3`}>
+    <td className={`${stripFieldName(fieldName)} field pa3 bb b--black-20`}>
       {isMarkdown ? (
         <span
           className="field-value markdown-field"

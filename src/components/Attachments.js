@@ -21,7 +21,11 @@ const mapAttachmentToComponent = (attachment, fieldName) => {
 };
 
 const Attachments = ({ attachments, fieldName }) => (
-  <td className={`${stripFieldName(fieldName)} attachments field pa4 tc`}>
+  <td
+    className={`${stripFieldName(
+      fieldName
+    )} attachments field pa4 tc bb b--black-20`}
+  >
     {attachments.map(attachment => (
       <span className="img-span" key={attachment.id}>
         {mapAttachmentToComponent(attachment)}
