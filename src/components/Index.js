@@ -23,8 +23,8 @@ const Index = ({ rows, pagination }) => (
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">
             Shipping Status
           </th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Tracking</th>
           <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">From</th>
+          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Tracking</th>
         </tr>
       </thead>
       <tbody className="lh-copy">
