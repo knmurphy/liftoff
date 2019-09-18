@@ -23,9 +23,9 @@ const mapAttachmentToComponent = (attachment, fieldName) => {
 const Attachments = ({ attachments, fieldName }) => (
   <td className={`${stripFieldName(fieldName)} attachments field`}>
     {attachments.map(attachment => (
-      <div className="pa4 tc" key={attachment.id}>
+      <span className="pa4 tc" key={attachment.id}>
         {mapAttachmentToComponent(attachment)}
-      </div>
+      </span>
     ))}
   </td>
 );
