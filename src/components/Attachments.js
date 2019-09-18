@@ -10,10 +10,8 @@ const mapAttachmentToComponent = (attachment, fieldName) => {
       <img
         key={attachment.id}
         src={src}
-        className="br4 h3 w3 dib attachment-image"
+        className="h3 w3 dib attachment-image"
         alt={fieldName}
-        height="53px"
-        width="50px"
       />
     );
   }
@@ -22,14 +20,12 @@ const mapAttachmentToComponent = (attachment, fieldName) => {
 
 const Attachments = ({ attachments, fieldName }) => (
   <td
-    className={`${stripFieldName(
-      fieldName
-    )} attachments field pa4 tc bb b--black-20`}
+    className={`${stripFieldName(fieldName)} attachments field  bb b--black-20`}
   >
     {attachments.map(attachment => (
-      <span className="img-span" key={attachment.id}>
+      <div className="img-span p1 tc" key={attachment.id}>
         {mapAttachmentToComponent(attachment)}
-      </span>
+      </div>
     ))}
   </td>
 );
