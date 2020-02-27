@@ -7,8 +7,18 @@ body {
   border-radius: 2rem;
 }
 
+.iframe-container {
+  border-width: 2px !important;
+  border-radius: 0.5rem;
+  padding: 0.175rem;
+}
+
 .logo-top {
   width: 150px;
+}
+
+.logo-bottom {
+  width: 125px;
 }
 
 .table-container .table {

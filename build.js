@@ -180,6 +180,12 @@ fs.copyFile("custom/logoTop.png", "dist/logoTop.png", err => {
   }
 });
 
+fs.copyFile("custom/logoBottom.png", "dist/logoBottom.png", err => {
+  if (err) {
+    console.log("No Logo bottom file found");
+  }
+});
+
 fs.copyFile("custom/agent1.png", "dist/agent1.png", err => {
   if (err) {
     console.log("No agent1 file found");
