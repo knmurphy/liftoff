@@ -1,60 +1,82 @@
 import React from "react";
-
+import _ from "underscore";
 import PropTypes from "prop-types";
 
 import LinkOrAnchor from "./LinkOrAnchor";
 import Header from "./Header";
+import Footer from "./Footer";
 import Row from "./Row";
 import getFieldsToDisplay from "../utils/getFieldsToDisplay";
 
 const Index = ({ rows, pagination }) => (
-  <div className="index-page f6 w-100 mw8 center">
-    {/* this needs to be refactored, shouldn't have check for window here */}
-    {process.env.HEADER_TITLE && <Header title={process.env.HEADER_TITLE} />}
-    <table className="" cellSpacing="0">
-      <thead>
-        <tr>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Order</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Product</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">To</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Company</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Qty</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Carrier</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">
-            Shipping Status
-          </th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">From</th>
-          <th className="fw6 bb b--black-20 tl pb3 pl3 bg-white">Tracking</th>
-        </tr>
-      </thead>
-      <tbody className="lh-copy">
-        {rows.map(row => {
-          return (
-            <Row
-              fieldsToDisplay={getFieldsToDisplay(
-                process.env.HOMEPAGE_FIELD_ORDER
-              )}
-              rowData={row}
-            />
-          );
-        })}
-      </tbody>
-    </table>
-    {pagination && (
-      <div>
-        {pagination.back && (
-          <LinkOrAnchor className="nav-button" to={pagination.back}>
-            <span>Back</span>
-          </LinkOrAnchor>
+  <>
+    <div className="container">
+      <div className="main-wrapper bg-white mt-5">
+        {/* this needs to be refactored, shouldn't have check for window here */}
+        {process.env.HEADER_TITLE && (
+          <Header title={process.env.HEADER_TITLE} />
         )}
-        {pagination.next && (
-          <LinkOrAnchor className="nav-button" to={pagination.next}>
-            <span>Next</span>
-          </LinkOrAnchor>
+        <div className="table-container p-4">
+          <table className="table table-responsive table-hover mb-0">
+            <thead>
+              <tr className="bg-primary text-white">
+                <th className="">Order</th>
+                <th className="">Agent Name</th>
+                <th className="">Recipient</th>
+                <th className="">Company</th>
+                <th className="d-none d-lg-table-cell">Address</th>
+                <th className="">Product</th>
+                <th className="">Qty</th>
+                <th className="">Method</th>
+                <th className="">Tracking</th>
+                <th className="">Shipping Status</th>
+                <th className="">Agent Photo</th>
+              </tr>
+            </thead>
+            <tbody className="lh-copy">
+              {rows.map(row => {
+                const slugField = _.find(
+                  row.fields,
+                  field => field.name === "Slug"
+                );
+                const slug =
+                  (typeof window === "undefined" &&
+                    slugField &&
+                    slugField.value) ||
+                  row.id;
+
+                return (
+                  <Row
+                    fieldsToDisplay={getFieldsToDisplay(
+                      process.env.HOMEPAGE_FIELD_ORDER
+                    )}
+                    rowData={row}
+                    key={slug}
+                    slug={slug}
+                  />
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        {pagination && (
+          <div>
+            {pagination.back && (
+              <LinkOrAnchor className="nav-button" to={pagination.back}>
+                <span>Back</span>
+              </LinkOrAnchor>
+            )}
+            {pagination.next && (
+              <LinkOrAnchor className="nav-button" to={pagination.next}>
+                <span>Next</span>
+              </LinkOrAnchor>
+            )}
+          </div>
         )}
       </div>
-    )}
-  </div>
+    </div>
+    <Footer />
+  </>
 );
 
 Index.propTypes = {
